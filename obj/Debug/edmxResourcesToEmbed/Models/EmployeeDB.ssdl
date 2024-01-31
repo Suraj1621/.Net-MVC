@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeData.dbo.EmployeeData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeData">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="CreatedOn" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="LastLoggedOn" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="EmployeeDataModelStoreContainer">
+    <EntitySet Name="EmployeeData" EntityType="Self.EmployeeData" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeData].[Id] AS [Id], 
+    [EmployeeData].[FirstName] AS [FirstName], 
+    [EmployeeData].[LastName] AS [LastName], 
+    [EmployeeData].[Email] AS [Email], 
+    [EmployeeData].[Password] AS [Password], 
+    [EmployeeData].[CreatedOn] AS [CreatedOn], 
+    [EmployeeData].[LastLoggedOn] AS [LastLoggedOn]
+    FROM [dbo].[EmployeeData] AS [EmployeeData]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

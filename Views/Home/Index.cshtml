@@ -1,0 +1,77 @@
+﻿@model List<Register.Models.EmployeeRegister>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row justify-content-center">
+
+
+    <div class="col-md-8">
+        <h2>Employees</h2>
+        @Html.ActionLink("Register User", "Register", "Employee", null, new { @class = "mb-5 btn btn-outline-primary float-end" })
+
+        <table class="mt-8 table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Sr.No</th>
+                    <th scope="col">Name</th>
+
+                    <th scope="col">Email</th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">Last Logged In</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null && Model.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (var user in Model)
+                        {
+
+
+
+
+                            i++;
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@user.FirstName @user.LastName</td>
+                                <td>@user.Email</td>
+                                <td>@user.CreatedOn</td>
+                                <td>@user.LastLoggedIn</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        
+                                        @Html.ActionLink("Edit", "EditEmployee", "Employee", new { id = @user.Id }, new { @class = "btn btn-lg btn-success" })
+
+                                        @Html.ActionLink("Delete", "Employee", "Delete", new { id = @user.Id }, new { @class = "btn btn-outline-danger" })
+                                        
+
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="coolspan-4">No record Found</td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

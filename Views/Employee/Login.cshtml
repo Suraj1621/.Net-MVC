@@ -1,0 +1,47 @@
+﻿@model Register.Models.EmployeeRegister
+
+@{
+    ViewBag.Title = "Login";
+}
+
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("Login", "Employee", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+
+<div class="mx-auto" style="width: 800px;">
+    <div class="row justify-content-center">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div class="row justify-content-center">    
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
+</div>
+    }
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">@ViewBag.Message</div>
+    }
+
+    @if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Any())
+    {
+        <div class="alert alert-danger">@ViewData.ModelState[""].Errors[0].ErrorMessage</div>
+    }
+</div>
+

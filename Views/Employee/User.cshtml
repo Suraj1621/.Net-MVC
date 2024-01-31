@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "User";
+}
+
+<br />
+
+<h2 style="color:mediumvioletred"><marquee>Hello @Session["Name"] Welcome Back..</marquee> </h2>
+<br />
+<hr />
+
+<div class="d-flex bd-highlight">
+    <div class="p-2 flex-fill bd-highlight">
+
+        <h4 style="color:darkorchid">
+            Your ID: @Session["ID"]
+            <br />
+            <br />
+
+            Your Email: @Session["Email"]
+        </h4>
+        <div>
+            <a href="@Url.Action("Login", "Employee")" class="btn btn-secondary">Logout</a>
+        </div>
+    </div>
+   
+
+
+</div>
+<br />
+<br />
+<br />
+<br />
+
